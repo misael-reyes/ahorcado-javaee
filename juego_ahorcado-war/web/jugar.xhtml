@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>ahorcado</title>
+    </h:head>
+    <h:body>
+        <center>
+            <h2><h:outputLabel value="Selecciona una letra" /></h2>
+        <f:view>
+            <!-- mostramos la palabra oculta -->
+            <c:forEach var="c" items="#{ahorcado.palabraoculta}">
+                <h:outputLabel value="${c} " />
+            </c:forEach>
+            <br />
+            <br />
+            <h:form>
+                <!-- mostrar la palabra seleccionada y las letras a adivinar -->
+                <c:forEach var="letra" items="#{ahorcado.letras}" varStatus="indice">
+                    <h:commandLink value="${letra}" id="j${indice.index}" actionListener="#{ahorcado.actualiza}" />
+                </c:forEach>
+            </h:form>
+            <!-- 
+            <h:outputLabel>"${ahorcado.idLetra}"</h:outputLabel>
+             -->
+        </f:view>
+            <h2><h:outputLabel value="Total de intentos: #{ahorcado.intentost}" /></h2>
+            <h2><h:outputLabel value="Total de intentos realizados: #{ahorcado.intentosr}" /></h2>
+        </center>
+    </h:body>
+</html>
+

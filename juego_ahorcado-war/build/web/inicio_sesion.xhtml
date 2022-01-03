@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <center>
+            <f:view>
+                <h:form>
+                    <h1><h:outputText value="Inicio de Sesión"/></h1>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Nombre:" for="nombre" />
+                        <h:inputText id="nombre" value="#{ahorcado.alias}" title="alias" />
+                        <h:outputLabel value="ID Usuario:" for="iduser" />
+                        <h:inputText id="iduser" value="#{ahorcado.id}" title="id" />
+                    </h:panelGrid>
+                    <br />
+                    <h:commandButton value="Inicar Sesión" actionListener="#{ahorcado.login()}" />
+                </h:form>
+            </f:view>
+
+            <h:form>
+                <br />
+                <h:commandLink value="Registrarse" action="registrar_usuario.xhtml" />
+                <br />
+                <h:commandLink value="Regresar" action="index.xhtml" />
+            </h:form> 
+
+        </center>
+    </h:body>
+</html>
+
